@@ -1,0 +1,6 @@
+framework module Pods_Rxweatherapp {
+  umbrella header "Pods-Rxweatherapp-umbrella.h"
+
+  export *
+  module * { export * }
+}
