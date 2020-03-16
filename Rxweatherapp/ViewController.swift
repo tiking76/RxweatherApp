@@ -9,7 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var TitleLabel: UILabel!
+    
+    @IBOutlet weak var TextField:UITextField!
+    
+    @IBOutlet weak var DecideButton:UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
