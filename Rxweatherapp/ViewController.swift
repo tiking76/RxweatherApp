@@ -13,10 +13,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TitleLabel: UILabel!
     
-    @IBOutlet weak var TextField:UITextField!
+    @IBOutlet weak var TokyoButton: UIButton!
     
-    @IBOutlet weak var DecideButton:UIButton!
+    @IBOutlet weak var OsakaButton: UIButton!
+
+    @IBOutlet weak var KyotoButton: UIButton!
     
+    @IBOutlet weak var FukushimaButton: UIButton!
+    
+    @IBOutlet weak var WeatherView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
