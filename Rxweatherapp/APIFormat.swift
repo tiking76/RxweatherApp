@@ -9,6 +9,10 @@
 import Foundation
 
 let BaseURL : String = "http://api.openweathermap.org/data/2.5/weather?"
-var Location : String
+var Location : String!
+let MyAPIKey : String = "c99c1251da79265a3fea7735ae927232"
 
+struct  DataFormat : Codable{
+    
+}
 
