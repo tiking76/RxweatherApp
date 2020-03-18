@@ -7,27 +7,38 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
-    
+
     
     @IBOutlet weak var TitleLabel: UILabel!
-    
-    @IBOutlet weak var TokyoButton: UIButton!
-    
-    @IBOutlet weak var OsakaButton: UIButton!
-
-    @IBOutlet weak var KyotoButton: UIButton!
-    
-    @IBOutlet weak var FukushimaButton: UIButton!
-    
-    @IBOutlet weak var WeatherView: UIImageView!
+    @IBOutlet weak var tokyoButton: UIButton!
+    @IBOutlet weak var osakaButton: UIButton!
+    @IBOutlet weak var kyotoButton: UIButton!
+    @IBOutlet weak var fukushimaButton: UIButton!
+    @IBOutlet weak var weatherView: UIImageView!
+    private let disposedBeg = DisposeBag()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+        tokyoButton.rx.tap
+            .subscribe(onNext: {
+                Location = "tokyo"
+                self.weatherView.image = UIImage(named: "sun")
+                self.view.addSubview(self.weatherView)
+                print("hoge")
+            })
+            .disposed(by: disposedBeg)
+        osakaButton.rx.tap.subscribe(onNext : {
+            Location = "tokyo"
+            self.weatherView.image = UIImage(named: "rain")
+            self.view.addSubview(self.weatherView)
+            print("hoge")
+        })
+            .disposed(by: disposedBeg)
+        }
 
 }
-

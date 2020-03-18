@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import RxSwift
+import Alamofire
+import RxAlamofire
 
-let BaseURL : String = "http://api.openweathermap.org/data/2.5/weather?"
+let BaseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
 var Location : String!
 let MyAPIKey : String = "c99c1251da79265a3fea7735ae927232"
 
 
 
 struct  DataFormat : Codable{
-    var LocationName : String
-    var StatusCode : Int
-    var Weather : String
+    var LocationName : String?
+    var StatusCode : Int?
+    var Weather : String?
     
     init() {
         LocationName = ""
@@ -26,3 +29,9 @@ struct  DataFormat : Codable{
     }
 }
 
+func httpRequest() {
+    let url : String = BaseURL + Location + ",jp&units=metric&APPID=" + MyAPIKey
+    let headers: HTTPHeaders = [
+        "Contenttype": "application/json"
+    ]
+}

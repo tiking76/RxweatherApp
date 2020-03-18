@@ -51,12 +51,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="FukushimaButton" destination="iWJ-a7-hZS" id="63M-5h-Qk9"/>
-                        <outlet property="KyotoButton" destination="LXy-6H-rjb" id="98C-6N-Dg2"/>
-                        <outlet property="OsakaButton" destination="zVZ-eq-BgL" id="ngu-45-NpG"/>
                         <outlet property="TitleLabel" destination="e6C-Bv-zxe" id="D2b-gF-Jzb"/>
-                        <outlet property="TokyoButton" destination="aFW-nI-m8c" id="YFY-aM-1ZV"/>
-                        <outlet property="WeatherView" destination="kcP-Xv-OZ2" id="vj6-Py-w6b"/>
+                        <outlet property="fukushimaButton" destination="iWJ-a7-hZS" id="MzQ-Rb-Ir3"/>
+                        <outlet property="kyotoButton" destination="LXy-6H-rjb" id="M1W-pU-Ucc"/>
+                        <outlet property="osakaButton" destination="zVZ-eq-BgL" id="S9B-GP-s3h"/>
+                        <outlet property="tokyoButton" destination="aFW-nI-m8c" id="Nba-7y-bup"/>
+                        <outlet property="weatherView" destination="kcP-Xv-OZ2" id="ldd-DP-ZTU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
