@@ -11,27 +11,32 @@ import RxSwift
 import Alamofire
 import RxAlamofire
 
-let BaseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
-var Location : String!
-let MyAPIKey : String = "c99c1251da79265a3fea7735ae927232"
+let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
+var location : String!
+let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
 
 
 
 struct  DataFormat : Codable{
-    var LocationName : String?
-    var StatusCode : Int?
-    var Weather : String?
-    
-    init() {
-        LocationName = ""
-        StatusCode = 200
-        Weather = ""
-    }
+    var statusCode : Int
+    var weather : String
 }
 
 func httpRequest() {
-    let url : String = BaseURL + Location + ",jp&units=metric&APPID=" + MyAPIKey
-    let headers: HTTPHeaders = [
-        "Contenttype": "application/json"
-    ]
-}
+    let url : String = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
+    
+    Alamofire.request(url,
+                      method: .get,
+                      encoding: JSONEncoding.default
+        ).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let data = response.data else { return }
+                guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else { return }
+                
+            case .failure(let error):
+                print(error)
+                }
+            }
+    }
+
