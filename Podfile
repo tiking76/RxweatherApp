@@ -7,7 +7,9 @@ target 'Rxweatherapp' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'RxBlocking', '~> 5'
-  pod 'RxTest', '~> 5'
+  pod 'Alamofire', '~> 4.0'
+  pod 'RxAlamofire'
+  pod 'SwiftyJSON', '~> 4.0'
   # Pods for Rxweatherapp
 
 end
