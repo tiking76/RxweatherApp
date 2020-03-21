@@ -32,7 +32,7 @@ func httpRequest() {
             switch response.result {
             case .success:
                 guard let data = response.data else { return }
-                guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else { return }
+                //guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else { return }
                 
             case .failure(let error):
                 print(error)

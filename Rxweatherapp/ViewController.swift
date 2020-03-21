@@ -26,15 +26,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tokyoButton.rx.tap
             .subscribe(onNext: {
-                Location = "tokyo"
-                self.weatherView.image = UIImage(named: "sun")
+                location = "tokyo"
+                self.weatherView.image = UIImage(named: "Sun")
                 self.view.addSubview(self.weatherView)
                 print("hoge")
             })
             .disposed(by: disposedBeg)
         osakaButton.rx.tap.subscribe(onNext : {
-            Location = "tokyo"
-            self.weatherView.image = UIImage(named: "rain")
+            location = "tokyo"
+            self.weatherView.image = UIImage(named: "Rain")
             self.view.addSubview(self.weatherView)
             print("hoge")
         })

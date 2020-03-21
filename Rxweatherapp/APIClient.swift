@@ -15,3 +15,5 @@ import RxAlamofire
 enum APIClient {
     private static let baseUrl = "http://api.openweathermap.org/data/2.5/weather?q="
 }
+
+
