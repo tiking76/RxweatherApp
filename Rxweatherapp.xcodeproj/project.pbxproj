@@ -46,6 +46,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114A4E38243EDBC300C57B05 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				11FC9C13241BDF8000EFD24C /* ViewController.swift */,
+				11FC9C23241D00CF00EFD24C /* APIFormat.swift */,
+				11FC9C25241FDFE100EFD24C /* LocationData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		114A4E39243EDC3B00C57B05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				11FC9C15241BDF8000EFD24C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		114A4E3A243EDC5400C57B05 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				11FC9C0F241BDF8000EFD24C /* AppDelegate.swift */,
+				11FC9C11241BDF8000EFD24C /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		11FC9C03241BDF8000EFD24C = {
 			isa = PBXGroup;
 			children = (
@@ -67,12 +94,9 @@
 		11FC9C0E241BDF8000EFD24C /* Rxweatherapp */ = {
 			isa = PBXGroup;
 			children = (
-				11FC9C0F241BDF8000EFD24C /* AppDelegate.swift */,
-				11FC9C11241BDF8000EFD24C /* SceneDelegate.swift */,
-				11FC9C25241FDFE100EFD24C /* LocationData.swift */,
-				11FC9C23241D00CF00EFD24C /* APIFormat.swift */,
-				11FC9C13241BDF8000EFD24C /* ViewController.swift */,
-				11FC9C15241BDF8000EFD24C /* Main.storyboard */,
+				114A4E38243EDBC300C57B05 /* Model */,
+				114A4E39243EDC3B00C57B05 /* View */,
+				114A4E3A243EDC5400C57B05 /* Controller */,
 				11FC9C18241BDF8300EFD24C /* Assets.xcassets */,
 				11FC9C1A241BDF8300EFD24C /* LaunchScreen.storyboard */,
 				11FC9C1D241BDF8300EFD24C /* Info.plist */,
