@@ -37,7 +37,7 @@ struct Coord : Codable {
     let lan : Int
 }
 
-struct Wether : Codable {
+struct Weather : Codable {
     let id : Int
     let main : String
     let description : String
@@ -72,6 +72,7 @@ struct Sys : Codable {
 
 func httpRequest() {
     let url : String = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
+    
     
     
     

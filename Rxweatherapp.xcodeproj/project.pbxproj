@@ -59,6 +59,7 @@
 		114A4E39243EDC3B00C57B05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11FC9C1A241BDF8300EFD24C /* LaunchScreen.storyboard */,
 				11FC9C15241BDF8000EFD24C /* Main.storyboard */,
 			);
 			path = View;
@@ -98,7 +99,6 @@
 				114A4E39243EDC3B00C57B05 /* View */,
 				114A4E3A243EDC5400C57B05 /* Controller */,
 				11FC9C18241BDF8300EFD24C /* Assets.xcassets */,
-				11FC9C1A241BDF8300EFD24C /* LaunchScreen.storyboard */,
 				11FC9C1D241BDF8300EFD24C /* Info.plist */,
 			);
 			path = Rxweatherapp;
