@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import RxSwift
-import RxAlamofire
+import Alamofire
+
 
 
 let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
 var location : String!
 let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
-
-
+//http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232
 
 struct  DataFormat : Codable{
     let coord : Coord
@@ -31,6 +30,7 @@ struct  DataFormat : Codable{
     let name : String
     let cod : Int
 }
+
 
 struct Coord : Codable {
     let lon : Int
@@ -58,6 +58,7 @@ struct Wind : Codable {
     let deg : Int
 }
 
+
 struct Clouds : Codable {
     let all : Int
 }
@@ -70,12 +71,20 @@ struct Sys : Codable {
     let sunset : Int
 }
 
-func httpRequest() {
-    let url : String = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
+
+
+
+class NetworkingClient {
     
+  func getAddress() {
+    let text = "http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232"
+    let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     
-    
-    
-   
+    //ここからデータ通信している
+    Alamofire.request(lowurl, method: .get, parameters: nil, encoding: JSONEncoding.default)
+    .responseJSON { (response) in
+        print(response)
     }
+  }
+}
 

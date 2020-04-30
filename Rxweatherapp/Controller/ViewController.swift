@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var fukushimaButton: UIButton!
     @IBOutlet weak var weatherView: UIImageView!
     private let disposedBeg = DisposeBag()
+    var client = NetworkingClient()
    
     
     override func viewDidLoad() {
@@ -27,16 +28,17 @@ class ViewController: UIViewController {
         tokyoButton.rx.tap
             .subscribe(onNext: {
                 location = "tokyo"
+                self.client.getAddress()
                 self.weatherView.image = UIImage(named: "Sun")
                 self.view.addSubview(self.weatherView)
-                print("hoge")
+                //print("hoge")
             })
             .disposed(by: disposedBeg)
         osakaButton.rx.tap.subscribe(onNext : {
             location = "osaka"
             self.weatherView.image = UIImage(named: "Rain")
             self.view.addSubview(self.weatherView)
-            print("hoge")
+            //print("hoge")
         })
             .disposed(by: disposedBeg)
         }

@@ -49,7 +49,6 @@
 		114A4E38243EDBC300C57B05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				11FC9C13241BDF8000EFD24C /* ViewController.swift */,
 				11FC9C23241D00CF00EFD24C /* APIFormat.swift */,
 				11FC9C25241FDFE100EFD24C /* LocationData.swift */,
 			);
@@ -68,6 +67,7 @@
 		114A4E3A243EDC5400C57B05 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				11FC9C13241BDF8000EFD24C /* ViewController.swift */,
 				11FC9C0F241BDF8000EFD24C /* AppDelegate.swift */,
 				11FC9C11241BDF8000EFD24C /* SceneDelegate.swift */,
 			);
