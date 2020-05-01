@@ -77,13 +77,20 @@ struct Sys : Codable {
 class NetworkingClient {
     
   func getAddress() {
-    let text = "http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232"
+    let text = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
     let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     
     //ここからデータ通信している
     Alamofire.request(lowurl, method: .get, parameters: nil, encoding: JSONEncoding.default)
     .responseJSON { (response) in
-        print(response)
+      switch response.result {
+        //成功時に実行する内容
+          case .success:
+            print(response)
+        //エラー処理
+          case let .failure(error):
+            print(error)
+      }
     }
   }
 }
