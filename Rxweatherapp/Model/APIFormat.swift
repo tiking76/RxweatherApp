@@ -91,9 +91,10 @@ class NetworkingClient {
                     print(data)
                     print(type(of: data.self))
                     let decoder = JSONDecoder()
-                    print("hoge")
+                    //ここでデコードしているのか？
+                    //これ、値ないってマ！？
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    print(weatherResult)
+                    print(weatherResult.weather)
                     
                     
                     
