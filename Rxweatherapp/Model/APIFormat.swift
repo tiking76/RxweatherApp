@@ -17,58 +17,13 @@ let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
 //http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232
 
 struct  DataFormat : Codable{
-    let coord : Coord
     let weather : [Weather]
-    let base : String
-    let main : Main
-    let visibility : Int
-    let wind : Wind
-    let clouds : Clouds
-    let sys : Sys
-    let timezone : Int
-    let id : Int
-    let name : String
-    let cod : Int
-}
-
-
-struct Coord : Codable {
-    let lon : Int
-    let lan : Int
-}
-
-struct Weather : Codable {
-    let id : Int
-    let main : String
-    let description : String
-    let icon : String
-}
-
-struct Main : Codable {
-    let temp : Int
-    let feels_like : Int
-    let temp_min : Int
-    let temp_max : Int
-    let pressure : Int
-    let humidity : Int
-}
-
-struct Wind : Codable {
-    let speed : Int
-    let deg : Int
-}
-
-
-struct Clouds : Codable {
-    let all : Int
-}
-
-struct Sys : Codable {
-    let type : Int
-    let id : Int
-    let country : String
-    let sunrise : Int
-    let sunset : Int
+    struct Weather : Codable {
+        var id : Int
+        var main : String
+        var description : String
+        var icon : String
+    }
 }
 
 
@@ -77,12 +32,12 @@ struct Sys : Codable {
 class NetworkingClient {
     
     
-   func getAddress() {
+func getAddress() {
         let text = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
         let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         //ここからデータ通信している
         Alamofire.request(lowurl, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON { (response) in
+            .responseJSON{ (response) in
                 switch response.result {
                 //成功時に実行する内容
                 case .success:
@@ -91,24 +46,15 @@ class NetworkingClient {
                     print(data)
                     print(type(of: data.self))
                     let decoder = JSONDecoder()
-                    //ここでデコードしているのか？
-                    //これ、値ないってマ！？
+                    //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    print(weatherResult.weather)
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+                    print(weatherResult.weather[0].main)
                 //エラー処理
                 case let .failure(error):
                     print(error)
                 }
-        }
+                
+            }
     }
 }
 
