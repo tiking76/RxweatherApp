@@ -27,19 +27,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tokyoButton.rx.tap
             .subscribe(onNext: {
-                location = "tokyo"
+                location = LocationData.tokyo.rawValue
                 self.client.getAddress()
                 self.weatherView.image = UIImage(named: "Sun")
                 self.view.addSubview(self.weatherView)
-                //print("hoge")
             })
             .disposed(by: disposedBeg)
-        osakaButton.rx.tap.subscribe(onNext : {
-            location = "osaka"
-            self.weatherView.image = UIImage(named: "Rain")
-            self.view.addSubview(self.weatherView)
-            //print("hoge")
-        })
+        osakaButton.rx.tap
+            .subscribe(onNext : {
+                location = LocationData.osaka.rawValue
+                self.client.getAddress()
+                self.weatherView.image = UIImage(named: "Rain")
+                self.view.addSubview(self.weatherView)
+            })
+            .disposed(by: disposedBeg)
+        kyotoButton.rx.tap
+            .subscribe(onNext : {
+                location = LocationData.kyoto.rawValue
+                self.client.getAddress()
+                self.weatherView.image = UIImage(named: "Clouds")
+                self.view.addSubview(self.weatherView)
+            })
+            .disposed(by: disposedBeg)
+        fukushimaButton.rx.tap
+            .subscribe(onNext :{
+                location = LocationData.fukushima.rawValue
+                self.client.getAddress()
+                self.weatherView.image = UIImage(named: "Snow")
+                self.view.addSubview(self.weatherView)
+            })
             .disposed(by: disposedBeg)
         }
 
