@@ -9,8 +9,6 @@
 import Foundation
 import Alamofire
 
-
-
 let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
 var location : String!
 let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
@@ -27,12 +25,10 @@ struct  DataFormat : Codable{
 }
 
 
-
-
 class NetworkingClient {
+    var weathericon : String = ""
     
-    
-func getAddress() {
+    func getAddress() {
         let text = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
         let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         //ここからデータ通信している
@@ -49,6 +45,7 @@ func getAddress() {
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
                     print(weatherResult.weather[0].main)
+                    self.weathericon = weatherResult.weather[0].main
                 //エラー処理
                 case let .failure(error):
                     print(error)

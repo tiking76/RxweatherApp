@@ -12,7 +12,6 @@ import RxCocoa
 
 class ViewController: UIViewController {
 
-    
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var tokyoButton: UIButton!
     @IBOutlet weak var osakaButton: UIButton!
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
             .subscribe(onNext: {
                 location = LocationData.tokyo.rawValue
                 self.client.getAddress()
-                self.weatherView.image = UIImage(named: "Sun")
+                self.weatherView.image = UIImage(named: self.client.weathericon)
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
             .subscribe(onNext : {
                 location = LocationData.osaka.rawValue
                 self.client.getAddress()
-                self.weatherView.image = UIImage(named: "Rain")
+                self.weatherView.image = UIImage(named: self.client.weathericon)
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -45,7 +44,7 @@ class ViewController: UIViewController {
             .subscribe(onNext : {
                 location = LocationData.kyoto.rawValue
                 self.client.getAddress()
-                self.weatherView.image = UIImage(named: "Clouds")
+                self.weatherView.image = UIImage(named: self.client.weathericon)
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
             .subscribe(onNext :{
                 location = LocationData.fukushima.rawValue
                 self.client.getAddress()
-                self.weatherView.image = UIImage(named: "Snow")
+                self.weatherView.image = UIImage(named: self.client.weathericon)
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)

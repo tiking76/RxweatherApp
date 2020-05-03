@@ -15,11 +15,5 @@ enum LocationData: String {
     case kyoto = "kyoto"
 }
 
-enum WeatherType : String {
-    case sunny = "晴れ"
-    case cloudy = "曇り"
-    case rain = "雨"
-    case snow = "雪"
-}
 
 
