@@ -12,11 +12,10 @@ import Alamofire
 let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
 var location : String!
 let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
-//http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232
 
-struct  DataFormat : Codable{
+struct  DataFormat : Decodable{
     let weather : [Weather]
-    struct Weather : Codable {
+    struct Weather : Decodable {
         var id : Int
         var main : String
         var description : String
@@ -30,6 +29,7 @@ class NetworkingClient {
     
     func getAddress() {
         let text = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
+        //ここがよく分かってない
         let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         //ここからデータ通信している
         Alamofire.request(lowurl, method: .get, parameters: nil, encoding: JSONEncoding.default)
@@ -37,10 +37,10 @@ class NetworkingClient {
                 switch response.result {
                 //成功時に実行する内容
                 case .success:
-                    //多分ここでJSONからオブジェクトに変換されている？
                     guard let data = response.data else { return }
                     print(data)
                     print(type(of: data.self))
+                    print(location!)
                     let decoder = JSONDecoder()
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }

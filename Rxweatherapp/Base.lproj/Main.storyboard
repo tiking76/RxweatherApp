@@ -46,6 +46,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="akabeko"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xv-hx-7rA">
+                                <rect key="frame" x="331" y="67" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="詳細"/>
+                                <connections>
+                                    <segue destination="yEY-nQ-DeA" kind="presentation" modalPresentationStyle="fullScreen" id="ywd-Je-ofj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -55,6 +63,7 @@
                         <outlet property="fukushimaButton" destination="iWJ-a7-hZS" id="MzQ-Rb-Ir3"/>
                         <outlet property="kyotoButton" destination="LXy-6H-rjb" id="M1W-pU-Ucc"/>
                         <outlet property="osakaButton" destination="zVZ-eq-BgL" id="S9B-GP-s3h"/>
+                        <outlet property="senderDetail" destination="3xv-hx-7rA" id="Uqd-C3-s89"/>
                         <outlet property="tokyoButton" destination="aFW-nI-m8c" id="Nba-7y-bup"/>
                         <outlet property="weatherView" destination="kcP-Xv-OZ2" id="ldd-DP-ZTU"/>
                     </connections>
@@ -62,6 +71,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+        <!--Weather Detail View Controller-->
+        <scene sceneID="fEg-KB-H9x">
+            <objects>
+                <viewController id="yEY-nQ-DeA" customClass="WeatherDetailViewController" customModule="Rxweatherapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7de-2N-iDS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eKY-Gw-5PN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7V-0j-cWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="130"/>
         </scene>
     </scenes>
     <resources>
