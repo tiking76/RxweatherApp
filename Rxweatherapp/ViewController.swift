@@ -28,32 +28,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tokyoButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                location = LocationData.tokyo.rawValue
-                self?.client.getAddress()
-                self?.weatherView.image = UIImage(named: (self?.client.weathericon ?? nil)!)
+                self?.client.getAddress(LocationData.tokyo.rawValue)
+                self?.weatherView.image = UIImage(named: self!.client.weathericon)
                 self?.view.addSubview(self!.weatherView)
             })
             .disposed(by: disposedBeg)
         osakaButton.rx.tap
             .subscribe(onNext : { [weak self] in
-                location = LocationData.osaka.rawValue
-                self?.client.getAddress()
-                self?.weatherView.image = UIImage(named: (self?.client.weathericon)!)
+                self?.client.getAddress(LocationData.osaka.rawValue)
+                self?.weatherView.image = UIImage(named: self!.client.weathericon)
                 self?.view.addSubview(self!.weatherView)
             })
             .disposed(by: disposedBeg)
         kyotoButton.rx.tap
             .subscribe(onNext : { [weak self] in
-                location = LocationData.kyoto.rawValue
-                self?.client.getAddress()
+                self?.client.getAddress(LocationData.kyoto.rawValue)
                 self?.weatherView.image = UIImage(named: self!.client.weathericon)
                 self?.view.addSubview(self!.weatherView)
             })
             .disposed(by: disposedBeg)
         fukushimaButton.rx.tap
             .subscribe(onNext :{ [weak self] in
-                location = LocationData.fukushima.rawValue
-                self?.client.getAddress()
+                self?.client.getAddress(LocationData.fukushima.rawValue)
                 self?.weatherView.image = UIImage(named: self!.client.weathericon)
                 self?.view.addSubview(self!.weatherView)
             })

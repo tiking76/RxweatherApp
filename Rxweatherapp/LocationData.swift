@@ -9,10 +9,10 @@
 import Foundation
 
 enum LocationData: String {
-    case tokyo = "tokyo"
-    case fukushima = "fukushima"
-    case osaka = "osaka"
-    case kyoto = "kyoto"
+    case tokyo
+    case fukushima
+    case osaka
+    case kyoto
 }
 
 
