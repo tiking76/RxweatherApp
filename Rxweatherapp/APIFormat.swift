@@ -35,12 +35,9 @@ class NetworkingClient {
                 case .success:
                     //多分ここでJSONからオブジェクトに変換されている？
                     guard let data = response.data else { return }
-                    print(data)
-                    print(type(of: data.self))
                     let decoder = JSONDecoder()
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    print(weatherResult.weather[0].main)
                     self.weathericon = weatherResult.weather[0].main
                 //エラー処理
                 case let .failure(error):

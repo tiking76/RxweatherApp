@@ -53,5 +53,4 @@ class ViewController: UIViewController {
             })
             .disposed(by: disposedBeg)
         }
-
 }
