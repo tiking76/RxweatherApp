@@ -22,14 +22,15 @@ class ViewController: UIViewController {
     
     private let disposedBeg = DisposeBag()
     var client = NetworkingClient()
-   
-    
+    var tmp : Array<Main> = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tokyoButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.client.getAddress(LocationData.tokyo.rawValue)
+                //self.tmp = self.client.detailData
                 self.weatherView.image = UIImage(named: self.client.weathericon)
                 self.view.addSubview(self.weatherView)
             })

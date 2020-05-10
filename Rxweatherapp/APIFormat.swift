@@ -20,10 +20,10 @@ struct Weather : Decodable {
     var icon : String
 }
 struct Main : Decodable {
-    var temp : Float
-    var feel_like : Float
-    var temp_min : Float
-    var temp_max : Float
+    var temp : Double
+    var feels_like : Double
+    var temp_min : Double
+    var temp_max : Double
     var pressure : Int
     var humidity : Int
 }
@@ -47,10 +47,8 @@ class NetworkingClient {
                     let decoder = JSONDecoder()
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    print(weatherResult)
-                    self.weathericon = weatherResult.weather[0].main
-                    
-                    //self.detailData.append(weatherResult.main.self)
+                    self.weathericon = weatherResult.weather[0].main 
+                    //self.detailData.append(weatherResult.main)
                 //エラー処理
                 case let .failure(error):
                     print(error)
