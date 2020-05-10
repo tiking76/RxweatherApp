@@ -33,7 +33,7 @@ class NetworkingClient {
     private let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
     private let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
     private(set) var weathericon : String = ""
-    private(set) var detailData : Array<Main> = []
+    private(set) var detailData : Array<String> = []
     
     func getAddress(_ loocation : String) {
         let url = "\(baseURL)\(loocation),jp&units=metric&APPID=\(myAPIKey)"
@@ -47,8 +47,14 @@ class NetworkingClient {
                     let decoder = JSONDecoder()
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    self.weathericon = weatherResult.weather[0].main 
-                    //self.detailData.append(weatherResult.main)
+                    self.weathericon = weatherResult.weather[0].main
+                    self.detailData = []
+                    //ここでStringに変換しているのは、Mainの中の型がIntとDoubleで分かれていたため
+                    self.detailData.append(String(weatherResult.main.temp))
+                    self.detailData.append(String(weatherResult.main.temp_max))
+                    self.detailData.append(String(weatherResult.main.temp_min))
+                    self.detailData.append(String(weatherResult.main.humidity))
+                    self.detailData.append(String(weatherResult.main.pressure))
                 //エラー処理
                 case let .failure(error):
                     print(error)
@@ -57,6 +63,4 @@ class NetworkingClient {
             }
     }
 }
-
-
 
