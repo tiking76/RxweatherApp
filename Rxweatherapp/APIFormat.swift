@@ -9,43 +9,53 @@
 import Foundation
 import Alamofire
 
-let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
-var location : String!
-let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
-//http://api.openweathermap.org/data/2.5/weather?q=tokyo,jp&units=metric&APPID=c99c1251da79265a3fea7735ae927232
-
-struct  DataFormat : Codable{
+struct  DataFormat : Decodable{
     let weather : [Weather]
-    struct Weather : Codable {
-        var id : Int
-        var main : String
-        var description : String
-        var icon : String
-    }
+    let main : Main
+}
+struct Weather : Decodable {
+    var id : Int
+    var main : String
+    var description : String
+    var icon : String
+}
+struct Main : Decodable {
+    var temp : Double
+    var feels_like : Double
+    var temp_min : Double
+    var temp_max : Double
+    var pressure : Int
+    var humidity : Int
 }
 
 
 class NetworkingClient {
-    var weathericon : String = ""
+    private let baseURL : String = "http://api.openweathermap.org/data/2.5/weather?q="
+    private let myAPIKey : String = "c99c1251da79265a3fea7735ae927232"
+    private(set) var weathericon : String = ""
+    private(set) var detailData : Array<String> = []
     
-    func getAddress() {
-        let text = baseURL + location + ",jp&units=metric&APPID=" + myAPIKey
-        let lowurl = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    func getAddress(_ loocation : String) {
+        let url = "\(baseURL)\(loocation),jp&units=metric&APPID=\(myAPIKey)"
         //ここからデータ通信している
-        Alamofire.request(lowurl, method: .get, parameters: nil, encoding: JSONEncoding.default)
+        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON{ (response) in
                 switch response.result {
                 //成功時に実行する内容
                 case .success:
-                    //多分ここでJSONからオブジェクトに変換されている？
                     guard let data = response.data else { return }
-                    print(data)
-                    print(type(of: data.self))
                     let decoder = JSONDecoder()
                     //ここでデコードしている
                     guard let weatherResult = try? decoder.decode(DataFormat.self, from: data) else { return }
-                    print(weatherResult.weather[0].main)
                     self.weathericon = weatherResult.weather[0].main
+                    self.detailData = []
+                    //ここでStringに変換しているのは、Mainの中の型がIntとDoubleで分かれていたため
+                    //賢い人いい実装教えてください
+                    self.detailData.append(String(weatherResult.main.temp))
+                    self.detailData.append(String(weatherResult.main.temp_max))
+                    self.detailData.append(String(weatherResult.main.temp_min))
+                    self.detailData.append(String(weatherResult.main.humidity))
+                    self.detailData.append(String(weatherResult.main.pressure))
                 //エラー処理
                 case let .failure(error):
                     print(error)
@@ -54,6 +64,4 @@ class NetworkingClient {
             }
     }
 }
-
-
 

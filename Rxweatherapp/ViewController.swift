@@ -18,44 +18,49 @@ class ViewController: UIViewController {
     @IBOutlet weak var kyotoButton: UIButton!
     @IBOutlet weak var fukushimaButton: UIButton!
     @IBOutlet weak var weatherView: UIImageView!
+    @IBOutlet weak var senderDetail: UIButton!
+    
     private let disposedBeg = DisposeBag()
     var client = NetworkingClient()
-   
-    
+    var weatherData : Array<String> = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tokyoButton.rx.tap
-            .subscribe(onNext: {
-                location = LocationData.tokyo.rawValue
-                self.client.getAddress()
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.client.getAddress(LocationData.tokyo.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
+                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
         osakaButton.rx.tap
-            .subscribe(onNext : {
-                location = LocationData.osaka.rawValue
-                self.client.getAddress()
+            .subscribe(onNext : { [weak self] in
+                guard let self = self else { return }
+                self.client.getAddress(LocationData.osaka.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
+                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
         kyotoButton.rx.tap
-            .subscribe(onNext : {
-                location = LocationData.kyoto.rawValue
-                self.client.getAddress()
+            .subscribe(onNext : { [weak self] in
+                guard let self = self else { return }
+                self.client.getAddress(LocationData.kyoto.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
+                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
         fukushimaButton.rx.tap
-            .subscribe(onNext :{
-                location = LocationData.fukushima.rawValue
-                self.client.getAddress()
+            .subscribe(onNext :{ [weak self] in
+                guard let self = self else { return }
+                self.client.getAddress(LocationData.fukushima.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
+                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
         }
-
 }
