@@ -50,6 +50,7 @@ class NetworkingClient {
                     self.weathericon = weatherResult.weather[0].main
                     self.detailData = []
                     //ここでStringに変換しているのは、Mainの中の型がIntとDoubleで分かれていたため
+                    //賢い人いい実装教えてください
                     self.detailData.append(String(weatherResult.main.temp))
                     self.detailData.append(String(weatherResult.main.temp_max))
                     self.detailData.append(String(weatherResult.main.temp_min))
