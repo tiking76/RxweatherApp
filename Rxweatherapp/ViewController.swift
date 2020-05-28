@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     private let disposedBeg = DisposeBag()
     var client = NetworkingClient()
     var weatherData : Array<String> = []
+    var indicatorBackgroundView: UIView!
+    var indicator: UIActivityIndicatorView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,6 @@ class ViewController: UIViewController {
                 guard let self = self else { return }
                 self.client.getAddress(LocationData.tokyo.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
-                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -40,7 +41,6 @@ class ViewController: UIViewController {
                 guard let self = self else { return }
                 self.client.getAddress(LocationData.osaka.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
-                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -49,7 +49,6 @@ class ViewController: UIViewController {
                 guard let self = self else { return }
                 self.client.getAddress(LocationData.kyoto.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
-                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
@@ -58,7 +57,6 @@ class ViewController: UIViewController {
                 guard let self = self else { return }
                 self.client.getAddress(LocationData.fukushima.rawValue)
                 self.weatherView.image = UIImage(named: self.client.weathericon)
-                self.weatherData = self.client.detailData
                 self.view.addSubview(self.weatherView)
             })
             .disposed(by: disposedBeg)
