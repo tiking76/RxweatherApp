@@ -5,30 +5,18 @@
 
 import Foundation
 
-struct  DataFormat : Decodable{
-    let weather : [Weather]
-    let main : Main
+protocol WeatherModel {
+    var weatherIcon : String { get set  }
+    var detailData : Main? { get set }
+    func getAddress(_ location : String, complecation: @escaping (DataFormat) -> Void ) -> Void
 }
-struct Weather : Decodable {
-    var id : Int
-    var main : String
-    var description : String
-    var icon : String
-}
-struct Main : Decodable {
-    var temp : Double
-    var feelsLike : Double
-    var tempMin : Double
-    var tempMax : Double
-    var pressure : Int
-    var humidity : Int
 
-    enum CodingKeys : String, CodingKey {
-        case temp
-        case feelsLike = "feels_like"
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-        case pressure
-        case humidity
+extension WeatherModel {
+    var  baseURL : String {
+        return "http://api.openweathermap.org/data/2.5/weather?q="
+    }
+
+    var  myAPIKey : String {
+        return "c99c1251da79265a3fea7735ae927232"
     }
 }

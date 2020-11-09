@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1e3-Xb-Rdl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1e3-Xb-Rdl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,84 +15,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ざっくりお天気App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6C-Bv-zxe">
-                                <rect key="frame" x="131" y="150" width="152.5" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Vfs-Uw-iob"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ざっくりお天気App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6C-Bv-zxe">
+                                <rect key="frame" x="131" y="150" width="152.5" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kcP-Xv-OZ2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcP-Xv-OZ2">
                                 <rect key="frame" x="87" y="248" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-nI-m8c">
-                                <rect key="frame" x="87" y="509" width="115" height="147"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="13J-gK-hOx"/>
-                                    <constraint firstAttribute="height" constant="147" id="1MD-JH-K1w"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-nI-m8c">
+                                <rect key="frame" x="82" y="509" width="115" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="tokyo-tower"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXy-6H-rjb">
-                                <rect key="frame" x="87" y="676" width="115" height="148"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="148" id="M4s-yP-Aeh"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXy-6H-rjb">
+                                <rect key="frame" x="68" y="676" width="142" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="maikosan"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-a7-hZS">
-                                <rect key="frame" x="210" y="676" width="117" height="148"/>
-                                <state key="normal" title="Button" image="akabeko"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xv-hx-7rA">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xv-hx-7rA">
                                 <rect key="frame" x="338" y="103" width="31" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="swP-rp-bZz"/>
-                                    <constraint firstAttribute="height" constant="30" id="tCp-ng-j8V"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="詳細"/>
                                 <connections>
                                     <segue destination="yEY-nQ-DeA" kind="show" id="lN0-5G-LXQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-eq-BgL">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVZ-eq-BgL">
                                 <rect key="frame" x="210" y="509" width="117" height="147"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="tsutenkaku_osaka"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-a7-hZS">
+                                <rect key="frame" x="215" y="676" width="112" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="akabeko"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="zVZ-eq-BgL" firstAttribute="leading" secondItem="aFW-nI-m8c" secondAttribute="trailing" constant="8" id="3Ay-RB-1L4"/>
-                            <constraint firstItem="zVZ-eq-BgL" firstAttribute="top" secondItem="kcP-Xv-OZ2" secondAttribute="bottom" constant="21" id="5T5-In-3wa"/>
-                            <constraint firstItem="aFW-nI-m8c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="AKH-1x-a8t"/>
-                            <constraint firstItem="LXy-6H-rjb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Aoa-k7-HD6"/>
-                            <constraint firstItem="kcP-Xv-OZ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MeU-Bo-pcy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LXy-6H-rjb" secondAttribute="bottom" constant="38" id="PQu-yd-Swl"/>
-                            <constraint firstItem="e6C-Bv-zxe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QIB-YJ-GYQ"/>
-                            <constraint firstItem="kcP-Xv-OZ2" firstAttribute="leading" secondItem="aFW-nI-m8c" secondAttribute="leading" id="Rlt-r3-J30"/>
-                            <constraint firstItem="e6C-Bv-zxe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SWN-FR-5gq"/>
-                            <constraint firstItem="3xv-hx-7rA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="Tge-GQ-zlq"/>
-                            <constraint firstItem="aFW-nI-m8c" firstAttribute="top" secondItem="kcP-Xv-OZ2" secondAttribute="bottom" constant="21" id="Urv-EF-PsJ"/>
-                            <constraint firstItem="3xv-hx-7rA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="338" id="WDS-h7-MQN"/>
-                            <constraint firstItem="aFW-nI-m8c" firstAttribute="firstBaseline" secondItem="zVZ-eq-BgL" secondAttribute="firstBaseline" id="X8h-XA-aVr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e6C-Bv-zxe" secondAttribute="trailing" id="YeG-vi-bOl"/>
-                            <constraint firstItem="kcP-Xv-OZ2" firstAttribute="top" secondItem="e6C-Bv-zxe" secondAttribute="bottom" constant="8" symbolic="YES" id="ZZY-Id-NW2"/>
-                            <constraint firstItem="iWJ-a7-hZS" firstAttribute="leading" secondItem="LXy-6H-rjb" secondAttribute="trailing" constant="8" id="aA9-hh-oia"/>
-                            <constraint firstItem="LXy-6H-rjb" firstAttribute="top" secondItem="aFW-nI-m8c" secondAttribute="bottom" constant="20" id="bRo-lA-dzc"/>
-                            <constraint firstItem="zVZ-eq-BgL" firstAttribute="leading" secondItem="iWJ-a7-hZS" secondAttribute="leading" id="cyt-B6-8ok"/>
-                            <constraint firstItem="LXy-6H-rjb" firstAttribute="firstBaseline" secondItem="iWJ-a7-hZS" secondAttribute="firstBaseline" id="eH6-oy-GWJ"/>
-                            <constraint firstItem="iWJ-a7-hZS" firstAttribute="top" secondItem="zVZ-eq-BgL" secondAttribute="bottom" constant="20" id="joy-eO-wTW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iWJ-a7-hZS" secondAttribute="trailing" constant="87" id="mFg-gZ-8Z0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3xv-hx-7rA" secondAttribute="trailing" constant="45" id="n7w-lt-yZw"/>
-                            <constraint firstItem="zVZ-eq-BgL" firstAttribute="leading" secondItem="aFW-nI-m8c" secondAttribute="trailing" constant="8" id="oMh-Mf-K8S"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zVZ-eq-BgL" secondAttribute="trailing" constant="87" id="oOr-rv-kVs"/>
-                            <constraint firstItem="aFW-nI-m8c" firstAttribute="baseline" secondItem="zVZ-eq-BgL" secondAttribute="baseline" id="pIc-Wq-KCa"/>
-                            <constraint firstItem="e6C-Bv-zxe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="rDw-bc-GmQ"/>
-                            <constraint firstItem="LXy-6H-rjb" firstAttribute="baseline" secondItem="iWJ-a7-hZS" secondAttribute="baseline" id="wQN-wK-C7x"/>
-                            <constraint firstItem="e6C-Bv-zxe" firstAttribute="centerX" secondItem="kcP-Xv-OZ2" secondAttribute="centerX" id="zpS-7a-eXu"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="iha-JU-HYh"/>
